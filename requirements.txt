@@ -2,7 +2,6 @@
 
 pandas==2.2.3
 pip==25.0.1
-python==3.12.0
 selenium==4.31.0
 streamlit==1.44.1
 webdriver-manager==4.0.2
