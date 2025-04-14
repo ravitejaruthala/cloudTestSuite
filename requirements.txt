@@ -1,5 +1,6 @@
 # This file may be used to create an environment using:
 
+chromedriver-py==135.0.7049.84
 pandas==2.2.3
 pip==25.0.1
 selenium==4.31.0
