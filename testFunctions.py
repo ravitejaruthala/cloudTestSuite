@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.firefox.options import Options
 
@@ -12,6 +13,7 @@ chrome_options.add_argument("--headless")  # Run Chrome in headless mode
 chrome_options.add_argument("--disable-gpu")
 
 # Set up headless mode for Firefox
+service = Service(GeckoDriverManager().install())
 firefox_options = Options()
 firefox_options.headless = True  # Run Firefox in headless mode
 
@@ -30,7 +32,7 @@ def launch_browser(browserName):
     if browserName == 'chrome':
         driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     elif browserName == 'firefox':
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=firefox_options)
+        driver = webdriver.Firefox(service=service, options=firefox_options)
     elif browserName == 'edge':
         driver = webdriver.Edge()
 def navigate_to_page(url):
